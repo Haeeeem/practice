@@ -13,13 +13,14 @@ public class Articles {
 
     // 글 목록
     public List<Article> articleList (){
-        List<Article> result = new ArrayList<>();
+        List<Article> articleResult = new ArrayList<>();
         for(Article e : articles){
-            result.add(e);
+            articleResult.add(e);
         }
-        return result;
+        return articleResult;
     }
 
+    // 글이 비어있는지 확인하는 메소드
     public boolean isNotEmpty() {
         return !articles.isEmpty();
     }
