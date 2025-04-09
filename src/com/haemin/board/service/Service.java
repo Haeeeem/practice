@@ -52,35 +52,35 @@ public class Service {
         String title = "";
         String content = "";
         String author = "";
-        while (title.trim().isEmpty() || content.trim().isEmpty() || author.trim().isEmpty()){
+        while (title.trim().isEmpty()){
             title = IoUtil.input("글 제목을 입력하세요. > ");
             while (title.trim().isEmpty()){
                 IoUtil.print("제목을 입력하지 않았습니다. 다시 입력해주세요. \t\t[초기화면]: '0'입력");
-                String zero = IoUtil.input("> ");
-                if(zero.equals("0")){
-                    return;
-                } else if (!(title.isEmpty())){
-                    break;
-                }
-                break;
-            }
-            content = IoUtil.input("글 내용을 입력하세요. > ");
-            while (content.trim().isEmpty()){
-                String zero = IoUtil.input("내용을 입력하지 않았습니다. 다시 입력해주세요. \t\t[초기화면]: '0'입력");
-                if(zero.equals("0")){
-                    return;
-                } else if (!(content.isEmpty())){
+                title = IoUtil.input("> ");
+                if(title.equals("0")){
                     break;
                 } 
                 break;
             }
+        }
+        while (content.trim().isEmpty()){
+            content = IoUtil.input("글 내용을 입력하세요. > ");
+            while (content.trim().isEmpty()){
+                IoUtil.print("내용을 입력하지 않았습니다. 다시 입력해주세요. \t\t[초기화면]: '0'입력");
+                content = IoUtil.input("> ");
+                if(content.equals("0")){
+                    break;
+                } 
+                break;
+            }
+        }
+        while (author.trim().isEmpty()){
             author = IoUtil.input("작성자를 입력하세요. > ");
             while (author.trim().isEmpty()){
-                String zero = IoUtil.input("작성자를 입력하지 않았습니다. 다시 입력해주세요. \t\t[초기화면]: '0'입력");
-                if(zero.equals("0")){
-                    return;
-            } else if (!(author.isEmpty())){
-                break;
+                IoUtil.print("작성자를 입력하지 않았습니다. 다시 입력해주세요. \t\t[초기화면]: '0'입력");
+                author = IoUtil.input("> ");
+                if(author.equals("0")){
+                    break;
             } break;
         }
     }
@@ -103,6 +103,5 @@ public class Service {
         } else {
             IoUtil.input("불러올 게시글이 없습니다. 초기화면으로 돌아갑니다.");
         }
-
     }
 }
